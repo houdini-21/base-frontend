@@ -1,0 +1,31 @@
+.selectCustom__control {
+  min-height: 36px;
+  height: 36px;
+  border-width: 1px;
+  border-color: #e0e0e0 !important;
+  border-radius: 6px;
+}
+.selectCustom__indicator-separator {
+  display: none;
+}
+.selectCustom__control--is-focused {
+  border-color: #e0e0e0;
+  box-shadow: none;
+}
+.selectCustom__control--is-focused.selectCustom__control--menu-is-open {
+  border-color: var(--blue2);
+  box-shadow: none;
+}
+.selectCustom__control:hover {
+  border-color: var(--blue2);
+  box-shadow: none;
+}
+
+.selectCustom__single-value {
+  color: var(--black);
+}
+
+.selectCustom__menu-list .selectCustom__option {
+  font-size: 14px;
+  cursor: pointer;
+}
