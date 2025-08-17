@@ -1,6 +1,6 @@
 import OutsideClickHandler from "react-outside-click-handler";
-import type { Icon } from "@Components/atoms/Icon";
-import type { Button } from "@Components/atoms";
+import { Icon } from "@Components/atoms/Icon";
+import { Button } from "@Components/atoms";
 import type { AlertProps } from "./Alert.types";
 
 const Alert = ({

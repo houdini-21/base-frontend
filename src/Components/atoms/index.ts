@@ -8,4 +8,4 @@ export { InputText } from './InputText';
 export { InputPassword } from './InputPassword';
 export { Textarea } from './Textarea';
 export { ButtonGroup } from './ButtonGroup';
-export { ButtonIcon } from './ButtonIcon';
+export { Loader } from './Loader';

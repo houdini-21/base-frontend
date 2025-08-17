@@ -23,7 +23,7 @@ const Table = ({
         rows={rows}
         rowHeight={rowHeight}
         headerRowHeight={headerRowHeight}
-        style={{ minHeight: "500px" }}
+        style={{ minHeight: "400px" }}
       />
       {/* Overlay de carga con fondo RGBA */}
       {loading && (

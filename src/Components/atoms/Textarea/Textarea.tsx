@@ -52,7 +52,7 @@ const Textarea = ({
       />
       {error && (
         <p className='text-red-500 text-sm font-bold mt-2 flex items-center'>
-          <i className='fa-sharp fa-solid fa-circle-exclamation mr-2' />
+          <i className="fa-solid fa-circle-exclamation mr-2" />
           {errorMessage}
         </p>
       )}

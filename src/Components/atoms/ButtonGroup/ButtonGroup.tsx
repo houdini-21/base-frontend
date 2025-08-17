@@ -13,7 +13,7 @@ const ButtonGroup = ({
       {items.map((item, index) => (
         <button
           className={classNames(
-            'font-bold py-2 px-4 rounded-full transition text-sm',
+            'font-bold py-2 px-4 rounded-full transition text-sm cursor-pointer',
             styleClasses,
             {
               'bg-blue-500 text-white': value === item.value, // Botón seleccionado

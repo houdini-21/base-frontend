@@ -43,7 +43,7 @@ const KPICard = ({
           </div>
         ) : (
           <div className='flex w-2/3 justify-end items-center'>
-            <p className='text-blue-600 font-bold text-sm'>{`En ruta: ${secondaryText}`}</p>
+            <p className='text-blue-600 font-bold text-sm'>{`${secondaryText}`}</p>
           </div>
         )}
       </div>

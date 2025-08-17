@@ -9,7 +9,7 @@ const BoxShadow = ({
 }: ShadowProps) => {
   return (
     <div
-      className={`bg-${background} mb-${marginBottom} shadow-lg rounded-lg p-${padding} ${styleClasses}`}
+      className={`bg-${background} mb-${marginBottom} shadow-lg rounded-lg w-full p-${padding} ${styleClasses}`}
     >
       {children}
     </div>

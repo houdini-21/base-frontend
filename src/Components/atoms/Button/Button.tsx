@@ -18,7 +18,7 @@ const Button = ({
     <Link
       to={path}
       className={classNames(
-        "px-4 py-2 rounded-xl w-full transition-colors duration-300 text-sm leading-6 font-semibold h-10 text-center inline-block cursor-pointer",
+        "px-4 py-2 rounded-xl  transition-colors duration-300 text-sm leading-6 font-semibold h-10 text-center inline-block cursor-pointer",
         styleClasses,
         {
           "bg-blue-500 hover:bg-blue-600 text-white": variant === "primary",
@@ -44,7 +44,7 @@ const Button = ({
     <button
       type={isSubmit ? "submit" : "button"}
       className={classNames(
-        "px-4 py-2 cursor-pointer rounded-xl w-full transition-colors duration-300 text-sm font-semibold h-10 leading-5",
+        "px-4 py-2 cursor-pointer rounded-xl  transition-colors duration-300 text-sm font-semibold h-10 leading-5",
         styleClasses,
         {
           "bg-blue-500 hover:bg-blue-600 text-white": variant === "primary",
