@@ -72,7 +72,7 @@ const Sidebar = ({
                   </div>
                   <P
                     color="white"
-                    fontSize="16font"
+                    fontSize="sm"
                     type="bold"
                     styleClasses={classNames("text-left w-full", {
                       hidden: !expandSidebar,

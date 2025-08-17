@@ -2,18 +2,15 @@ import { useState } from "react";
 import classNames from "classnames";
 import OutsideClickHandler from "react-outside-click-handler";
 import type { TopbarProps } from "../../Layout.types";
-import { useUserInfoStore } from "@Store/UserInfoStore";
 import { useNavigate } from "react-router-dom";
 
 const Topbar = ({ expandSidebar, children, setExpandSidebar }: TopbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const userInfo = useUserInfoStore((state) => state.userInfo);
-  const removeUserInfo = useUserInfoStore((state) => state.removeUserInfo);
+
 
   const closeSession = () => {
     localStorage.clear();
-    removeUserInfo();
 
     navigate("/");
   };
@@ -43,10 +40,10 @@ const Topbar = ({ expandSidebar, children, setExpandSidebar }: TopbarProps) => {
             <div className="flex flex-row">
               <div className="flex flex-col items-end mr-5">
                 <span className="text-14font text-blue2 font-semibold text-gray-500">
-                  {userInfo.nombre} {userInfo.apellido}
+                  {localStorage.getItem("userName") || "Usuario"}
                 </span>
                 <span className="text-10font text-gray3 font-semibold">
-                  {userInfo.rol.name}
+                  {localStorage.getItem("userRole") || "Rol"}
                 </span>
               </div>
               <button

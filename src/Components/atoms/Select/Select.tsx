@@ -55,7 +55,17 @@ const SelectCustom = ({
           "selectCustom__control--error": error, // Clase para el estado de error
           "opacity-50 pointer-events-none": disabled, // Reducir opacidad si está deshabilitado
         })}
-        onChange={onChange}
+        onChange={(newValue) => {
+          if (
+            newValue &&
+            typeof newValue === "object" &&
+            "value" in newValue
+          ) {
+            onChange(newValue.value);
+          } else {
+            onChange("");
+          }
+        }}
         components={{ Control: (props) => <Control {...props} icon={icon} /> }}
         isDisabled={disabled}
       />

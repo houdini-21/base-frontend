@@ -14,7 +14,7 @@ export interface ButtonProps
     OnClickProp,
     DisabledProp,
     IsLoadingProp {
-  variant?: "primary" | "secondary" | "danger" | "custom";
+  variant?: "primary" | "secondary" | "danger" | "custom" | "link" | string;
   startIcon?: string;
   endIcon?: string;
   path?: string;
