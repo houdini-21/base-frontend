@@ -31,7 +31,7 @@
       "@Interfaces/*": ["src/Interfaces/*"],
       "@Store/*": ["src/Store/*"],
       "@Assets/*": ["src/Assets/*"],
-      "@Utils/*": ["src/Components/utils/*"],
+      "@Utils/*": ["src/Utils/*"],
       "@Hooks/*": ["src/hooks/*"],
       "@Styles/*": ["src/styles/*"]
     }

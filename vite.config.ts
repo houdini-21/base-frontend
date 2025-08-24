@@ -27,7 +27,7 @@ export default defineConfig({
       "@Interfaces": resolve(__dirname, "./src/Interfaces"),
       "@Store": resolve(__dirname, "./src/Store"),
       "@Assets": resolve(__dirname, "./src/Assets"),
-      "@Utils": resolve(__dirname, "./src/Components/utils"),
+      "@Utils": resolve(__dirname, "./src/Utils"),
       "@Hooks": resolve(__dirname, "./src/hooks"),
       "@Styles": resolve(__dirname, "./src/styles"),
     },

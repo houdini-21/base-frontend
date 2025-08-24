@@ -1,13 +1,16 @@
 import { useFormik } from "formik";
+import { loginSchema } from "@Utils/validations";
 
 const useLogin = () => {
   const formik = useFormik({
     initialValues: {
-      username: "",
+      email: "",
       password: "",
     },
+    validationSchema: loginSchema,
+    validateOnChange: true,
     onSubmit: (values) => {
-      alert(`Username: ${values.username}\nPassword: ${values.password}`);
+      alert(`Email: ${values.email}\nPassword: ${values.password}`);
     },
   });
 
