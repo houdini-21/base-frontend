@@ -1,8 +1,8 @@
-import { BoxShadow, Button, InputText } from "@Components/atoms";
+import { BoxShadow, Button, InputPassword, InputText } from "@Components/atoms";
 import useLogin from "./hook";
 
 export const Login = () => {
-  const { formik } = useLogin();
+  const { formik, isLoading } = useLogin();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -26,9 +26,8 @@ export const Login = () => {
             }
             icon="fas fa-user"
           />
-          <InputText
+          <InputPassword
             name="password"
-            type="password"
             placeholder="Password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -38,9 +37,13 @@ export const Login = () => {
                 ? formik.errors.password
                 : ""
             }
-            icon="fas fa-lock"
           />
-          <Button variant="primary" isSubmit styleClasses="w-full">
+          <Button
+            variant="primary"
+            isSubmit
+            styleClasses="w-full"
+            isLoading={isLoading}
+          >
             Login
           </Button>
         </form>

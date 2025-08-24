@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import classNames from 'classnames';
-import type { InputPasswordProps } from './InputPassword.types';
+import { useState } from "react";
+import classNames from "classnames";
+import type { InputPasswordProps } from "./InputPassword.types";
 
 const InputPassword = ({
   placeholder,
@@ -10,34 +10,74 @@ const InputPassword = ({
   disabled = false,
   error = false,
   errorMessage,
-  value = '',
+  value = "",
   styleClasses,
-  classNameInput = 'w-full',
+  classNameInput = "w-full",
   onChange,
 }: InputPasswordProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div className={classNames('flex flex-col', styleClasses)}>
+    <div className={classNames("flex flex-col", styleClasses)}>
       {/* Etiqueta */}
       <label
         htmlFor={name}
-        className={classNames('text-sm font-medium mb-1', {
-          'text-red-500': error, // Rojo para errores
-          'text-blue-500': isFocused && !error, // Azul para enfoque
-          'text-gray-700': value !== '' && !error, // Texto oscuro si hay valor
-          'text-gray-500': value === '' && !isFocused && !error, // Texto gris claro para inactivos
-          'text-gray-400': disabled, // Gris tenue para deshabilitado
+        className={classNames("text-sm font-medium mb-1", {
+          "text-red-500": error, // Rojo para errores
+          "text-blue-500": isFocused && !error, // Azul para enfoque
+          "text-gray-700": value !== "" && !error, // Texto oscuro si hay valor
+          "text-gray-500": value === "" && !isFocused && !error, // Texto gris claro para inactivos
+          "text-gray-400": disabled, // Gris tenue para deshabilitado
         })}
       >
         {label}
       </label>
 
       <div className="relative">
+        {showPassword ? (
+          <i
+            className={classNames(
+              "absolute top-1/2 left-3 transform -translate-y-1/2 text-lg fas fa-unlock",
+              {
+                "text-gray-400": disabled, // Ícono deshabilitado
+                "text-gray-500": !disabled && !error, // Ícono normal
+                "text-red-500": error, // Ícono de error
+              }
+            )}
+            onClick={() => setShowPassword(false)}
+          />
+        ) : (
+          <i
+            className={classNames(
+              "absolute top-1/2 left-3 transform -translate-y-1/2 text-lg fas fa-lock",
+              {
+                "text-gray-400": disabled, // Ícono deshabilitado
+                "text-gray-500": !disabled && !error, // Ícono normal
+                "text-red-500": error, // Ícono de error
+              }
+            )}
+            onClick={() => setShowPassword(true)}
+          />
+        )}
+        {/* Ícono opcional */}
+        {/* {icon && (
+          <i
+            className={classNames(
+              "absolute top-1/2 left-3 transform -translate-y-1/2 text-lg",
+              {
+                "text-gray-400": disabled, // Ícono deshabilitado
+                "text-gray-500": !disabled && !error, // Ícono normal
+                "text-red-500": error, // Ícono de error
+              },
+              icon
+            )}
+          />
+        )} */}
+
         {/* Campo de entrada */}
         <input
-          type={showPassword ? 'text' : 'password'}
+          type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           name={name}
           id={id}
@@ -45,40 +85,21 @@ const InputPassword = ({
           value={value}
           onChange={onChange}
           className={classNames(
-            'border rounded-md px-4 py-3 text-sm outline-none transition-all',
+            "border rounded-md px-4 py-3 text-sm outline-none transition-all w-full pl-10",
             classNameInput,
             {
-              'border-red-500 text-red-500': error, // Rojo para errores
-              'border-blue-500 text-blue-500': isFocused && !error, // Azul para enfoque
-              'border-gray-300 text-gray-700': value !== '' && !error, // Borde y texto neutros para valor existente
-              'border-gray-200 text-gray-500': value === '' && !isFocused && !disabled, // Inactivo sin valor
-              'border-gray-300 text-gray-400 cursor-not-allowed bg-gray-100': disabled, // Estado deshabilitado
-            },
+              "border-red-500 text-red-500": error, // Bordes y texto rojo para error
+              "border-blue-500 text-blue-500": isFocused && !error, // Bordes y texto azul para enfoque
+              "border-gray-300 text-gray-700": value !== "" && !error, // Texto y bordes neutros si hay valor
+              "border-gray-200 text-gray-500":
+                value === "" && !isFocused && !disabled, // Gris claro para inactivo
+              "border-gray-300 text-gray-400 cursor-not-allowed bg-gray-100":
+                disabled, // Estado deshabilitado
+            }
           )}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
-
-        {/* Botón para mostrar/ocultar contraseña */}
-        <button
-          type="button"
-          className={classNames(
-            'absolute top-1/2 transform -translate-y-1/2 right-3 text-lg transition-all',
-            {
-              'text-gray-500': value === '' && !isFocused && !error, // Gris para inactivo
-              'text-blue-500': value !== '' && !error, // Azul para enfoque
-              'text-gray-400 cursor-not-allowed': disabled, // Gris tenue para deshabilitado
-            },
-          )}
-          onClick={() => setShowPassword(!showPassword)}
-          disabled={disabled} // Deshabilita el botón si el input está deshabilitado
-        >
-          {showPassword ? (
-            <i className="fa-sharp fa-regular fa-eye-slash" />
-          ) : (
-            <i className="fa-regular fa-eye" />
-          )}
-        </button>
       </div>
 
       {/* Mensaje de error */}

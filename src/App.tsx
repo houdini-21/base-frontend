@@ -1,9 +1,11 @@
-import RoutesPage from './Routes';
+import { ToastContainer } from 'react-toastify';
+import RoutesPage from "./Routes";
 
 const App = () => {
   return (
-    <div className='App bg-gray6 w-screen'>
+    <div className="App bg-gray6 w-screen">
       <RoutesPage />
+      <ToastContainer />
     </div>
   );
 };

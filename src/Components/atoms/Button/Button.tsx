@@ -25,7 +25,7 @@ const Button = ({
           "border border-blue-500 text-blue-500 hover:bg-blue-100":
             variant === "secondary",
           "bg-red-500 hover:bg-red-600 text-white": variant === "danger",
-          "cursor-wait": isLoading,
+          "cursor-wait opacity-50": isLoading,
           "opacity-50 cursor-not-allowed": disabled,
         }
       )}
@@ -51,7 +51,7 @@ const Button = ({
           "border border-blue-500 text-blue-500 hover:bg-blue-100":
             variant === "secondary",
           "bg-red-500 hover:bg-red-600 text-white": variant === "danger",
-          "cursor-wait": isLoading,
+          "cursor-wait opacity-50": isLoading,
           "opacity-50 cursor-not-allowed": disabled,
         }
       )}

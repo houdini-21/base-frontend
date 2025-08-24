@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ErrorPage } from "@Pages";
-// import PublicRoutes from "./PublicRoutes";
+import { useUserStore } from "@/Store/userStore";
 import PrivateRouteMiddleware from "./Helper/PrivateRouteMiddleware";
-import { Componentes, Login } from "@/Pages";
+import { Componentes, Login, ErrorPage } from "@/Pages";
 
 const RoutesPage = () => {
+  const { user, clearUser } = useUserStore();
+
   return (
     <Router>
       <Routes>
@@ -14,10 +15,17 @@ const RoutesPage = () => {
           path="/admin"
           element={
             <PrivateRouteMiddleware
-              user={{ logged: false, role: "admin" }}
+              user={{
+                logged: user.isLoggedIn,
+                role: user.role,
+              }}
               roleNeed="admin"
             >
-              <div>Admin</div>
+              <div>
+                <h1>Admin</h1>
+                <p>Welcome to the admin panel.</p>
+                <button onClick={() => clearUser()}>Admin Action</button>
+              </div>
             </PrivateRouteMiddleware>
           }
         />
@@ -26,7 +34,7 @@ const RoutesPage = () => {
           path="/user"
           element={
             <PrivateRouteMiddleware
-              user={{ logged: true, role: "user" }}
+              user={{ logged: false, role: "user" }}
               roleNeed="user"
             >
               <div>User</div>
