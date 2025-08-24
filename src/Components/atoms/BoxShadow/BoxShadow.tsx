@@ -2,7 +2,7 @@ import type { ShadowProps } from './BoxShadow.types';
 
 const BoxShadow = ({
   children,
-  background = 'white-500',
+  background = 'white',
   padding = '4',
   marginBottom = '5',
   styleClasses = '',
